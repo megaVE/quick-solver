@@ -1,11 +1,9 @@
 import { beforeEach, describe, expect, it } from "vitest";
 import type { Score } from "@/@types/score";
-import type { ScoreRate } from "@/constants/maps/score-rate";
+import { type ScoreRate, scoreRates } from "@/constants/maps/score-rate";
 import { getScoreRateFromTime } from "./get-score-rate-from-time";
 
 describe("Get Score Rate from Time", () => {
-	const scoreRateItems: ScoreRate[] = ["weak", "ok", "good", "very-good"];
-
 	let scoreArray: Score[];
 
 	beforeEach(() => {
@@ -20,7 +18,7 @@ describe("Get Score Rate from Time", () => {
 	it("should return an item of type ScoreRate", () => {
 		const scoreRate = getScoreRateFromTime(scoreArray, 80);
 
-		expect(scoreRateItems).toContain(scoreRate);
+		expect(scoreRates).toContain(scoreRate);
 	});
 
 	it("should return 'weak' when the time is too high", () => {

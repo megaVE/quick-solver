@@ -34,7 +34,7 @@ export function InstructionsDialog({ onOpenChange }: InstructionsDialogProps) {
 				<p>Seu objetivo é acertar todas as questões no menor tempo possível</p>
 				<DialogFooter className="!justify-center">
 					<DialogClose asChild>
-						<Button className="bg-slate-800 text-slate-50">Começar</Button>
+						<Button>Começar</Button>
 					</DialogClose>
 				</DialogFooter>
 			</DialogContent>

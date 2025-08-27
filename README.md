@@ -11,6 +11,7 @@ PT: Quick Solver é a maneira mais rápida e divertida de treinar suas habilidad
 - Heroicons
 - shadcn/ui
 - react-timer-hook
+- Day.js
 
 ### Testing Tools (Ferramentas de Teste)
 
@@ -18,8 +19,8 @@ PT: Quick Solver é a maneira mais rápida e divertida de treinar suas habilidad
 
 ## Features (Funcionalidades)
 
-Dynamic Question System with Instant Feedback
-
+- [x] Responsive Design.\
+(Design Responsivo.)
 - [x] Dynamic Question System with Instant Feedback.\
 (Sistema de Questões Dinâmico com Feedback Instantâneo.)
 - [x] Support for Addition, Subtraction, Multiplication, and Division.\
@@ -28,8 +29,5 @@ Dynamic Question System with Instant Feedback
 (Cronômetro em Tempo Real e Pontuação por Tempo)
 - [x] Automated Tests to Validate Logic.\
 (Testes Automatizados para Validar a Lógica.)
-- [ ] More Difficulty Options.\
-(Mais Opções de Dificuldade.)
-- [ ] Scoreboard\
+- [X] Scoreboard\
 (Placar de Pontuação)
-- ...
