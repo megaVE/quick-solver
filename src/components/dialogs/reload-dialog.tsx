@@ -11,9 +11,14 @@ import {
 interface ReloadDialogProps {
 	isOpen: boolean;
 	onOpenChange: (open: boolean) => void;
+	onReload: () => void;
 }
 
-export function ReloadDialog({ isOpen, onOpenChange }: ReloadDialogProps) {
+export function ReloadDialog({
+	isOpen,
+	onOpenChange,
+	onReload,
+}: ReloadDialogProps) {
 	return (
 		<Dialog onOpenChange={onOpenChange} open={isOpen}>
 			<DialogContent>
@@ -30,15 +35,7 @@ export function ReloadDialog({ isOpen, onOpenChange }: ReloadDialogProps) {
 						<Button variant="destructive">Cancelar</Button>
 					</DialogClose>
 
-					<Button
-						onClick={() => {
-							// biome-ignore lint/correctness/noSelfAssign: Needed
-							window.location.href = window.location.href;
-							window.location.reload();
-						}}
-					>
-						Reiniciar
-					</Button>
+					<Button onClick={onReload}>Reiniciar</Button>
 				</DialogFooter>
 			</DialogContent>
 		</Dialog>

@@ -40,6 +40,10 @@ export function QuestionsPage() {
 		setIsReloadDialogOpen(true);
 	}
 
+	function onReload() {
+		window.location.reload();
+	}
+
 	function onStart() {
 		timer.start();
 	}
@@ -60,6 +64,7 @@ export function QuestionsPage() {
 			<ScoreDialog score={currentScore} />
 			<ReloadDialog
 				isOpen={isReloadDialogOpen}
+				onReload={onReload}
 				onOpenChange={(open) => setIsReloadDialogOpen(open)}
 			/>
 			<InstructionsDialog onOpenChange={handleToggleInstructionsModal} />
