@@ -116,13 +116,16 @@ function QuestionsDisplayFocus({ isRunning }: QuestionDisplayPropsFocus) {
 
 	return (
 		<div className="flex flex-col items-center gap-12 md:gap-40">
-			<Label htmlFor="question" className="font-title text-9xl text-center">
+			<Label
+				htmlFor="question"
+				className="font-title text-7xl md:text-9xl text-center"
+			>
 				{currentQuestion.firstNumber} {OperationIconMap.get(operation)}{" "}
 				{currentQuestion.secondNumber}
 			</Label>
 			<form onSubmit={handleLocalSubmit}>
 				<Input
-					className="size-40 !text-8xl text-center remove-arrow"
+					className="size-28 md:size-40 text-6xl md:!text-8xl text-center remove-arrow"
 					type="number"
 					name="question"
 					ref={inputRef}
