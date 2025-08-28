@@ -115,7 +115,7 @@ function QuestionsDisplayFocus({ isRunning }: QuestionDisplayPropsFocus) {
 	}, [isRunning]);
 
 	return (
-		<div className="flex flex-col items-center gap-40">
+		<div className="flex flex-col items-center gap-12 md:gap-40">
 			<Label htmlFor="question" className="font-title text-9xl text-center">
 				{currentQuestion.firstNumber} {OperationIconMap.get(operation)}{" "}
 				{currentQuestion.secondNumber}

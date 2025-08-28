@@ -32,7 +32,7 @@ export function QuestionsHeader({ handleReload, timer }: QuestionsHeaderProps) {
 					{questionsCompleted} / {config.QUESTIONS_AMOUNT}
 				</p>
 			</div>
-			<div className="flex items-center gap-2 w-24">
+			<div className="flex items-center gap-2 w-26 md:w-24">
 				<ClockIcon className="size-4" />
 				<p>
 					{formatTimer({
