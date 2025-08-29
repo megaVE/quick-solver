@@ -7,6 +7,7 @@ import {
 	DialogHeader,
 	DialogTitle,
 } from "@/components/ui/dialog";
+import { useQuestionsContext } from "@/contexts/questions-context";
 
 interface ReloadDialogProps {
 	isOpen: boolean;
@@ -19,6 +20,14 @@ export function ReloadDialog({
 	onOpenChange,
 	onReload,
 }: ReloadDialogProps) {
+	const { questionsReset } = useQuestionsContext();
+
+	function handleReload() {
+		questionsReset();
+
+		onReload();
+	}
+
 	return (
 		<Dialog onOpenChange={onOpenChange} open={isOpen}>
 			<DialogContent>
@@ -35,7 +44,7 @@ export function ReloadDialog({
 						<Button variant="destructive">Cancelar</Button>
 					</DialogClose>
 
-					<Button onClick={onReload}>Reiniciar</Button>
+					<Button onClick={handleReload}>Reiniciar</Button>
 				</DialogFooter>
 			</DialogContent>
 		</Dialog>

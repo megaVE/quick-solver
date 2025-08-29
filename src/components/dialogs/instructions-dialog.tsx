@@ -10,12 +10,16 @@ import {
 import { config } from "@/constants/config";
 
 interface InstructionsDialogProps {
+	isOpen: boolean;
 	onOpenChange: (open: boolean) => void;
 }
 
-export function InstructionsDialog({ onOpenChange }: InstructionsDialogProps) {
+export function InstructionsDialog({
+	isOpen,
+	onOpenChange,
+}: InstructionsDialogProps) {
 	return (
-		<Dialog defaultOpen={true} onOpenChange={onOpenChange}>
+		<Dialog defaultOpen={true} open={isOpen} onOpenChange={onOpenChange}>
 			<DialogContent showCloseButton={false}>
 				<DialogHeader>
 					<DialogTitle className="font-title text-center">

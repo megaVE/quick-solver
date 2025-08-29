@@ -26,14 +26,18 @@ export function QuestionsPage() {
 	});
 
 	const [isReloadDialogOpen, setIsReloadDialogOpen] = useState(false);
+	const [isInstructionsDialogOpen, setIsInstructionsDialogOpen] =
+		useState(true);
 	const [currentScore, setCurrentScore] = useState<ScoreRateTimestamp | null>(
 		null,
 	);
 
 	function handleToggleInstructionsModal(open: boolean) {
-		if (open) return;
+		if (!open) {
+			onStart();
+		}
 
-		onStart();
+		setIsInstructionsDialogOpen(open);
 	}
 
 	function handleReload() {
@@ -41,7 +45,9 @@ export function QuestionsPage() {
 	}
 
 	function onReload() {
-		window.location.reload();
+		timer.reset(undefined, false);
+		setIsReloadDialogOpen(false);
+		setIsInstructionsDialogOpen(true);
 	}
 
 	function onStart() {
@@ -65,9 +71,12 @@ export function QuestionsPage() {
 			<ReloadDialog
 				isOpen={isReloadDialogOpen}
 				onReload={onReload}
-				onOpenChange={(open) => setIsReloadDialogOpen(open)}
+				onOpenChange={setIsReloadDialogOpen}
 			/>
-			<InstructionsDialog onOpenChange={handleToggleInstructionsModal} />
+			<InstructionsDialog
+				isOpen={isInstructionsDialogOpen}
+				onOpenChange={handleToggleInstructionsModal}
+			/>
 			<div>
 				<QuestionsHeader timer={timer} handleReload={handleReload} />
 				<main className="p-4">

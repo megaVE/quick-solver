@@ -1,6 +1,7 @@
 import {
 	createContext,
 	type ReactNode,
+	useCallback,
 	useContext,
 	useEffect,
 	useState,
@@ -14,6 +15,7 @@ type QuestionsContextType = {
 	operation: Operation;
 	questions: QuestionWithFeedback[];
 	questionsCompleted: number;
+	questionsReset: () => void;
 	handleUpdateFeedback: (index: number, newFeedback: boolean | null) => void;
 } | null;
 
@@ -40,8 +42,8 @@ export function QuestionsContextProvider({
 	onComplete,
 	children,
 }: QuestionsContextProviderProps) {
-	const [questions, setQuestions] = useState<QuestionWithFeedback[]>(
-		Array.from({ length: config.QUESTIONS_AMOUNT }).map(() => {
+	const questionsFactory = useCallback((): QuestionWithFeedback[] => {
+		return Array.from({ length: config.QUESTIONS_AMOUNT }).map(() => {
 			const questionGenerator = OperationQuestionGeneratorMap.get(
 				operation,
 			) as () => Question;
@@ -50,8 +52,11 @@ export function QuestionsContextProvider({
 				...questionGenerator(),
 				feedback: null,
 			};
-		}),
-	);
+		});
+	}, [operation]);
+
+	const [questions, setQuestions] =
+		useState<QuestionWithFeedback[]>(questionsFactory);
 
 	const questionsCompleted = questions.filter(
 		(question) => question.feedback,
@@ -74,9 +79,19 @@ export function QuestionsContextProvider({
 		}
 	}, [questionsCompleted, questions.length]);
 
+	function questionsReset() {
+		setQuestions(questionsFactory);
+	}
+
 	return (
 		<QuestionsContext.Provider
-			value={{ operation, questions, questionsCompleted, handleUpdateFeedback }}
+			value={{
+				operation,
+				questions,
+				questionsCompleted,
+				handleUpdateFeedback,
+				questionsReset,
+			}}
 		>
 			{children}
 		</QuestionsContext.Provider>
