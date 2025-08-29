@@ -16,6 +16,8 @@ PT: Quick Solver é a maneira mais rápida e divertida de treinar suas habilidad
 ### Testing Tools (Ferramentas de Teste)
 
 - Vitest
+- JSDOM
+- React Testing Library
 
 ## Features (Funcionalidades)
 
@@ -29,5 +31,11 @@ PT: Quick Solver é a maneira mais rápida e divertida de treinar suas habilidad
 (Cronômetro em Tempo Real e Pontuação por Tempo)
 - [x] Automated Tests to Validate Logic.\
 (Testes Automatizados para Validar a Lógica.)
-- [X] Scoreboard\
-(Placar de Pontuação)
+- [X] Scoreboard.\
+(Placar de Pontuação.)
+
+<img width="1600" height="900" alt="Captura de tela 2025-08-27 183547" src="https://github.com/user-attachments/assets/ca74a276-7e3f-473d-96a3-fd4f935b517b" />
+
+<img width="1600" height="900" alt="Captura de tela 2025-08-27 183553" src="https://github.com/user-attachments/assets/e13e8cb3-5f96-406e-aa1c-1febf0ddef27" />
+
+<img width="1600" height="900" alt="Captura de tela 2025-08-27 183614" src="https://github.com/user-attachments/assets/749c264d-4600-41bb-a2bc-10e410d5a053" />
